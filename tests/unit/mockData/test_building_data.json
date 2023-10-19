@@ -1,0 +1,30 @@
+{
+  "buildingId": 35,
+  "description": "The main building of the village",
+  "level": 1,
+  "producesResources": false,
+  "buildingLevelRequiredToLevelup": {},
+  "constructionTimeLeft": "00:00:00",
+  "constructionTime": "00:01:15",
+  "levelupFinishedTime": null,
+  "constructionTimeSeconds": 75,
+  "position": {
+    "x": 6,
+    "y": 6
+  },
+  "resourcesRequiredLevelUp": {
+    "Wood": 20,
+    "Stone": 1250
+  },
+  "populationRequiredNextLevel": 13,
+  "totalPopulationInUse": 13,
+  "points": 10,
+  "name": "Mine",
+  "moralePerHour": 2,
+  "populationCapacity": 45,
+  "resourceCapacity": 750,
+  "lastTimeMoralUpped": "2023-09-19T16:17:33.6941793",
+  "isUnderConstruction": false,
+  "generatesResource": "Stone",
+  "resourcesPerHour": 80
+}

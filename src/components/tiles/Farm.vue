@@ -8,8 +8,13 @@
 <script>
     /* eslint-disable no-console */
 
+    import ConstructionTile from "@/components/tiles/ConstructionTile.vue";
+
     export default{
         props: ['buildingProperties'],
+      components:{
+        ConstructionTile
+      },
 
        computed:{
             seasonsOn: function () {

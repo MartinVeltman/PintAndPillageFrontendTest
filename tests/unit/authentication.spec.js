@@ -22,7 +22,7 @@ describe('authentication.js', () => {
         });
     });
 
-    // Testing State
+
     it('should have correct initial state', () => {
         expect(store.state.authentication.status).toBeNull();
         expect(store.state.authentication.token).toBeNull();
@@ -45,7 +45,6 @@ describe('authentication.js', () => {
     });
 
 
-    // Testing Actions
     it('should commit auth_request and auth_success when login is successful', async () => {
         axios.mockResolvedValue({ data: { token: '123', user: {} } });
         await store.dispatch('login', {});

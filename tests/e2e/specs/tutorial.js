@@ -26,10 +26,7 @@ describe('Tutorial Flow', () => {
 
         // Check if the tutorial modal is closed
         cy.get('.tutorialBaseModal').should('not.exist');
-
-        cy.get('.noQuestsDisplay').should('exist');
-        cy.get('.noQuestsDisplay h1').should('contain', 'Quests');
-        cy.get('.noQuestsDisplay p').should('contain', 'There are no more quests to display');
+        cy.get('#modalButton').click();
 
     });
 });

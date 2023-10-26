@@ -44,12 +44,15 @@ Cypress.Commands.add('loginAndRegister', () => {
 });
 Cypress.Commands.add('navigateThroughTutorial', () => {
     cy.get('.tutorialBaseModal').should('exist');
-
     cy.get('button').contains('Continue').click();
-
-
     cy.get('button').contains('Lets do this!').click();
 
     cy.get('#modalButton').click();
+});
+
+Cypress.Commands.add('buildHouse', () => {
+    cy.get(':nth-child(8) > .clickableTile').click({ force: true }); //click on the house
+    cy.get(':nth-child(2) > :nth-child(1) > .buildingListItemContainer > button').click(); //click on the upgrade button
+    cy.wait(12000);
 });
 

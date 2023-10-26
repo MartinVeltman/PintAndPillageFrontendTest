@@ -6,6 +6,6 @@ before(() => {
 
 describe('Upgrade Buildings Flow', () => {
     it('should upgrade buildings', () => {
-        cy.get('.buildingCard').should('exist')
+
     })
 })

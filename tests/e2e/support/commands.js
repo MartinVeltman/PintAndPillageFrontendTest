@@ -23,3 +23,19 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+Cypress.Commands.add('loginAndRegister', (username, email, password) => {
+    // Login
+    cy.visit('/login');
+    cy.get('input[placeholder="Username"]').type(username);
+    cy.get('input[placeholder="Password"]').type(password);
+    cy.get('button.submitButton').click();
+
+    // Register
+    cy.visit('/register');
+    cy.get('input[placeholder="Username"]').type(username);
+    cy.get('input[placeholder="Email"]').type(email);
+    cy.get('input[placeholder="Password"]').type(password);
+    cy.get('input[placeholder="Repeat password"]').type(password);
+    cy.get('button.submitButton').click();
+});
+

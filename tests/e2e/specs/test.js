@@ -1,8 +1,8 @@
 // https://docs.cypress.io/api/table-of-contents
 
 describe('My First Test', () => {
-  it('Visits the app root url', () => {
+  it('Visits the app root url and checks for #app', () => {
     cy.visit('/')
-    cy.contains('h1', 'Welcome to Your Vue.js App')
+    cy.get('#app').should('exist')
   })
 })

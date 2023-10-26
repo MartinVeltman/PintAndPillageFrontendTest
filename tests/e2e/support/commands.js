@@ -23,19 +23,33 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-Cypress.Commands.add('loginAndRegister', (username, email, password) => {
-    // Login
-    cy.visit('/login');
-    cy.get('input[placeholder="Username"]').type(username);
-    cy.get('input[placeholder="Password"]').type(password);
-    cy.get('button.submitButton').click();
+Cypress.Commands.add('loginAndRegister', () => {
+    const username = Math.random().toString(36).substring(2, 15);
+    const email = username + '@example.com';
+    const password = 'Test@1234';
 
-    // Register
     cy.visit('/register');
     cy.get('input[placeholder="Username"]').type(username);
     cy.get('input[placeholder="Email"]').type(email);
     cy.get('input[placeholder="Password"]').type(password);
     cy.get('input[placeholder="Repeat password"]').type(password);
     cy.get('button.submitButton').click();
+
+    cy.visit('/login');
+    cy.get('input[placeholder="Username"]').type(email);
+    cy.get('input[placeholder="Password"]').type(password);
+    cy.get('button.submitButton').click();
+
+
+});
+Cypress.Commands.add('navigateThroughTutorial', () => {
+    cy.get('.tutorialBaseModal').should('exist');
+
+    cy.get('button').contains('Continue').click();
+
+
+    cy.get('button').contains('Lets do this!').click();
+
+    cy.get('#modalButton').click();
 });
 

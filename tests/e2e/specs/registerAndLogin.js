@@ -41,4 +41,36 @@ describe('Registration and Login Flow', () => {
         cy.url().should('include', '/');
 
     });
+
+    it('should not register with an invalid password', () => {
+        cy.visit('/register');
+        cy.get('input[placeholder="Username"]').type(randomUsername);
+        cy.get('input[placeholder="Email"]').type(randomEmail);
+        cy.get('input[placeholder="Password"]').type('invalid');
+        cy.get('input[placeholder="Repeat password"]').type('invalid');
+        cy.get('button.submitButton').click();
+        //.v-toast with text "Password must be at least 8 characters long"
+        cy.get('.v-toast').should('exist');
+        cy.contains('Password must have at least 8 characters');
+    });
+
+    it('should not login with invalid credentials', () => {
+        cy.visit('/login');
+        cy.get('input[placeholder="Username"]').type('wrongUsername');
+        cy.get('input[placeholder="Password"]').type('wrongPassword');
+        cy.get('button.submitButton').click();
+        cy.contains('Something went wrong');
+    });
+
+    it('should not register with an existing username', () => {
+        cy.visit('/register');
+        cy.get('input[placeholder="Username"]').type(randomUsername);
+        cy.get('input[placeholder="Email"]').type(randomEmail);
+        cy.get('input[placeholder="Password"]').type('Test@1234');
+        cy.get('input[placeholder="Repeat password"]').type('Test@1234');
+        cy.get('button.submitButton').click();
+        cy.contains('Something went wrong');
+        cy.get('.serverDown').should('exist');
+    });
+
 });

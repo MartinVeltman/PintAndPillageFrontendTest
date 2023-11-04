@@ -1,28 +1,4 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This is will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
 Cypress.Commands.add('loginAndRegister', () => {
     const username = Math.random().toString(36).substring(2, 15);
     const email = username + '@example.com';
@@ -51,8 +27,8 @@ Cypress.Commands.add('navigateThroughTutorial', () => {
 });
 
 Cypress.Commands.add('buildHouse', () => {
-    cy.get(':nth-child(8) > .clickableTile').click({ force: true }); //click on the house
-    cy.get(':nth-child(2) > :nth-child(1) > .buildingListItemContainer > button').click(); //click on the upgrade button
+    cy.get(':nth-child(8) > .clickableTile').click({ force: true });
+    cy.get(':nth-child(2) > :nth-child(1) > .buildingListItemContainer > button').click();
     cy.wait(12000);
 });
 

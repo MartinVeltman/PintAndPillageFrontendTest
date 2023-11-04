@@ -1,7 +1,7 @@
 import { createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import axios from 'axios';
-import authentication from '@/store/modules/authentication';  // Adjust this import based on your project structure
+import authentication from '@/store/modules/authentication';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
